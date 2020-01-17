@@ -49,7 +49,7 @@ function processFirstItem(stringList, callback) {
  * should return "There are 0".
 */
 
-  function processLength(list, callback){
+ function processLength(list, callback){
     return callback(list.length);
     }
   
@@ -184,8 +184,7 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
 function getFullNames(runners) {
-
-
+ 
 }
 
 /**
@@ -200,8 +199,8 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
+function firstNamesAllCaps(runners) {
+
 }
 
 /**
@@ -217,8 +216,7 @@ function firstNamesAllCaps(/* CODE HERE */) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(/* CODE HERE */) {
-  /* CODE HERE */
+function getRunnersByTShirtSize(runners, tShirtSize) {
 }
 
 /**
@@ -251,13 +249,15 @@ function tallyUpDonations(/* CODE HERE */) {
  * counter() // should return 2
  * etc
 */
+
 function counterMaker() {
-  // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+  let count = -1;
+
+  return function counter(counterMaker) {
+  ++count;
+  return count;
   }
-  // BROKEN CODE ENDS
+
 }
 
 /**
@@ -280,8 +280,16 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(max_value) {
+  let count = -1;
+  
+  return function counter(counterMakerWithLimit) {
+  if (count < max_value){
+    ++count;
+    } else {
+    count = 0};
+    return count;
+  }
 }
 
 /////////////// END OF CHALLENGE ///////////////
