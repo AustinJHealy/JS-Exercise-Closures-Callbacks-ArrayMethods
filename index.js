@@ -93,7 +93,10 @@ function processLastItem(stringList, callback) {
  * should return 1000.
 */
 function processSum(numberList, callback) {
-  return callback(numberList, num2 => numberList.reduce(numberList+numberList))
+  const sum = numberList.reduce(function(sum, current) {
+    return (sum+= current)
+  }, 0)
+  return callback(sum);
 }
 
 /**
