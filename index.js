@@ -93,7 +93,7 @@ function processLastItem(stringList, callback) {
  * should return 1000.
 */
 function processSum(numberList, callback) {
-  return callback(numberList.reduce(callback, 0))
+  return callback(numberList, num2 => numberList.reduce(numberList+numberList))
 }
 
 /**
@@ -184,7 +184,10 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
 function getFullNames(runners) {
- 
+ const names=[];
+ runners.forEach(runner => names.push(`${runner.last_name}, ${runner.first_name}`));
+ return names;
+
 }
 
 /**
@@ -200,7 +203,9 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-
+const upper=[];
+runners.forEach(runner => {upper.push(runner.first_name.toUpperCase())})
+return upper;
 }
 
 /**
@@ -217,6 +222,8 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
+  return runners.filter(e => tShirtSize === e.shirt_size)
+
 }
 
 /**
@@ -250,12 +257,13 @@ function tallyUpDonations(/* CODE HERE */) {
  * etc
 */
 
+
 function counterMaker() {
-  let count = -1;
+  let count = 0;
 
   return function counter(counterMaker) {
-  ++count;
-  return count;
+  return count++;
+  
   }
 
 }
@@ -285,9 +293,9 @@ function counterMakerWithLimit(max_value) {
   
   return function counter(counterMakerWithLimit) {
   if (count < max_value){
-    ++count;
+    count++;
     } else {
-    count = 0};
+    count = 0 };
     return count;
   }
 }
